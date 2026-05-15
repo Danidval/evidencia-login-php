@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Web - Registro e Inicio de Sesión</title>
+    <!-- Fuente Roboto (similar a las imágenes proporcionadas) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 (íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Contenedor principal que envuelve todo el contenido (como en las imágenes) -->
+    <div class="content">
+        <div id="index" style="margin: 0;">
+            <!-- Cabecera (header) oscura -->
+            <header class="bg-dark text-white py-3">
+                <div class="container">
+                    <h1 class="h3"><i class="fas fa-code"></i> Servicio Web - Registro y Login</h1>
+                </div>
+            </header>
+            <!-- Barra de navegación (nav) -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">API REST</a>
+                </div>
+            </nav>
+            <!-- Contenido principal (main) con formularios -->
+            <main class="py-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-8 col-sm-10">
+                            <!-- Tarjeta con pestañas (tabs) para Login y Registro -->
+                            <div class="card shadow">
+                                <div class="card-header bg-primary text-white">
+                                    <ul class="nav nav-tabs card-header-tabs" id="authTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#loginPanel" type="button" role="tab">Iniciar sesión</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#registerPanel" type="button" role="tab">Registrarse</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content" id="authTabsContent">
+                                        <!-- Panel de LOGIN -->
+                                        <div class="tab-pane fade show active" id="loginPanel" role="tabpanel">
+                                            <form id="loginFormElement">
+                                                <div class="form-group mb-3">
+                                                    <label for="loginUsername" class="form-label">Usuario</label>
+                                                    <input type="text" class="form-control" id="loginUsername" placeholder="Ingrese usuario" autocomplete="off" required>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="loginPassword" class="form-label">Clave</label>
+                                                    <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese Clave" required>
+                                                </div>
+                                                <div class="d-grid gap-2">
+                                                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
+                                                </div>
+                                                <div id="loginMessage" class="message mt-3"></div>
+                                            </form>
+                                        </div>
+                                        <!-- Panel de REGISTRO (con nombre completo, usuario, clave, repetir clave) -->
+                                        <div class="tab-pane fade" id="registerPanel" role="tabpanel">
+                                            <form id="registerFormElement">
+                                                <div class="form-group mb-3">
+                                                    <label for="registerFullname" class="form-label">Nombre completo</label>
+                                                    <input type="text" class="form-control" id="registerFullname" placeholder="Ingrese nombre completo" autocomplete="off" required>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="registerUsername" class="form-label">Usuario</label>
+                                                    <input type="text" class="form-control" id="registerUsername" placeholder="Ingrese usuario" autocomplete="off" required>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="registerPassword" class="form-label">Clave</label>
+                                                    <input type="password" class="form-control" id="registerPassword" placeholder="Ingrese Clave" required>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="registerPassword2" class="form-label">Repetir Clave</label>
+                                                    <input type="password" class="form-control" id="registerPassword2" placeholder="Repita Clave" required>
+                                                </div>
+                                                <div class="d-grid gap-2">
+                                                    <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i> Registrarse</button>
+                                                </div>
+                                                <div id="registerMessage" class="message mt-3"></div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Pie de página (footer) -->
+            <footer class="bg-light text-center py-3 mt-4">
+                <div class="container">
+                    <p class="mb-0">&copy; 2026 - Servicio Web para registro y login | API REST</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Panel de Dashboard (se muestra después de login exitoso) -->
+    <div id="dashboard" class="dashboard" style="display: none;">
+        <div class="card shadow p-4 text-center">
+            <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+            <h2 id="welcomeMessage">Bienvenido</h2>
+            <button id="logoutBtn" class="btn btn-danger mt-3"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript (necesario para las pestañas) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personalizado (consumo de API) -->
+    <script src="js/main.js"></script>
+</body>
+</html>

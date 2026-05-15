@@ -1,0 +1,83 @@
+/**
+ * public/css/style.css
+ * Estilos adicionales para complementar Bootstrap y dar apariencia similar a las imágenes
+ */
+
+/* Aplicar fuente Roboto a todo el cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fondo degradado como se ve en muchas interfaces modernas */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Contenedor principal para que el footer quede abajo */
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* El main ocupa el espacio restante */
+main {
+    flex: 1;
+}
+
+/* Tarjeta con bordes redondeados */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Estilo de las pestañas dentro del card-header */
+.nav-tabs .nav-link {
+    color: white;
+    font-weight: 500;
+    border: none;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    color: #ffc107; /* Amarillo para resaltar la pestaña activa */
+    border-bottom: 3px solid #ffc107;
+}
+
+/* Clase para los mensajes de éxito/error/info */
+.message {
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Panel de Dashboard (pantalla de bienvenida) que se superpone */
+.dashboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dashboard .card {
+    max-width: 400px;
+    width: 90%;
+    border-radius: 20px;
+}
