@@ -52,7 +52,7 @@ Este sistema permite la gestión de usuarios mediante una arquitectura desacopla
 
 ## Versionamiento
 
-Este proyecto se gestiona con Git. El historial de commits y el acceso al código fuente remoto se encuentran detallados en el archivo `enlace_repositorio.txt`.
+Este proyecto se gestiona con Git. El historial de commits se encuentra en el siguiente enlace: `[enlace_repositorio.txt](https://github.com/Danidval/evidencia-login-php/activity?ref=main&sort=ASC)`.
 
 ## Autor
 
