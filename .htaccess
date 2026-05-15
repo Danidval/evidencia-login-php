@@ -1,0 +1,5 @@
+# Habilitar el motor de reescritura (opcional, para que las URLs se vean sin .php)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ api/$1.php [L]

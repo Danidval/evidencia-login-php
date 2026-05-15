@@ -1,0 +1,7 @@
+# Ignorar archivos temporales y de entorno
+.env
+*.log
+.DS_Store
+.idea/
+vendor/
+node_modules/
